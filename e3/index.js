@@ -54,6 +54,7 @@ let convert = (from, to) => {
 let exchange = async () => {
     let inputSearch = $("#searchInput").val();
     let result = [];
+    let to;
     let countryCode = await getCountryByName(inputSearch);
     let currencies = $("#sortable2").children()
     if (currencies.length > 0) {
@@ -62,11 +63,11 @@ let exchange = async () => {
 
             result.push(currencies[index].innerHTML);
         }
-        let to = result.join(",")
+        to = result.join(",")
 
     }
     let exchangeResult = await convert(countryCode, to);
-    $("#result").html(JSON.stringify(response))
+    $("#result").html(JSON.stringify(exchangeResult))
 
 
 

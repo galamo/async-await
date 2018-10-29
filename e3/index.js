@@ -51,26 +51,34 @@ let convert = (from, to) => {
 
 
 
-let exchange = async () => {
-    let inputSearch = $("#searchInput").val();
-    let result = [];
-    let to;
-    let countryCode = await getCountryByName(inputSearch);
-    let currencies = $("#sortable2").children()
-    if (currencies.length > 0) {
+// let exchange = async () => {
+//     let inputSearch = $("#searchInput").val();
+//     let result = [];
+//     let to;
 
-        for (let index = 0; index < currencies.length; index++) {
+//     try {
+//         let countryCode = await getCountryByName(inputSearch);
+//         let currencies = $("#sortable2").children()
+//         if (currencies.length > 0) {
 
-            result.push(currencies[index].innerHTML);
-        }
-        to = result.join(",")
+//             for (let index = 0; index < currencies.length; index++) {
 
-    }
-    let exchangeResult = await convert(countryCode, to);
-    $("#result").html(JSON.stringify(exchangeResult))
+//                 result.push(currencies[index].innerHTML);
+//             }
+//             to = result.join(",")
+
+//         } else {
+//             throw new Error("No Selected exchanges")
+//         }
+//         let exchangeResult = await convert(countryCode, to);
+//         $("#result").html(JSON.stringify(exchangeResult))
+//     } catch (error) {
+//         $("#result").html(JSON.stringify(error))
+//     }
 
 
 
 
-}
+
+// }
 

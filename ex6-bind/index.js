@@ -55,11 +55,56 @@ Animal.prototype.print = function () { return this.subtype }
 
 doggy.print()
 
-var controller = {path: "https://mail.google.com/mail/u/0/#search/uploadfiles/FMfcgxvxBjfPfVkLqrzmDCZSdBXfZLrS", name: "userController"}
+let controller = { path: "https://mail.google.com/mail/u/0/#search/uploadfiles/FMfcgxvxBjfPfVkLqrzmDCZSdBXfZLrS", name: "userController" }
 for (var item in controller) {
 
-  
-        console.log(controller[item])
 
-    
+    console.log(controller[item])
+
+
 }
+
+
+
+
+let element = {};
+Object.defineProperty(element, "title", { writable: false, value: "e1" })
+
+
+var user = { name: "gal", age: 20 }
+
+Object.defineProperty(user, "getName", {
+    get() {
+        return this.name
+    },
+    set(newValue) {
+        this.name = newValue + " lastname"
+    }
+
+})
+
+
+var currency = { value: 20, type: "ILS" }
+
+Object.defineProperty(currency, "convertToDollar", {
+    get() {
+        return this.value * 3.5
+    }
+
+
+})
+
+Object.defineProperty(currency, "newProp", {
+    writable: false,
+    value: 2
+
+})
+
+Object.defineProperty(currency, "setProp", {
+   set(newVal){ //newVal right
+        this.newProp = newVal //this.newProp left
+   }
+//ex currency.setProp = 90
+})
+
+
